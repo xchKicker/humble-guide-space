@@ -12,13 +12,13 @@ import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-6xl font-semibold">404</h1>
-        <p className="mt-3 text-sm text-[#666]">Страница не найдена</p>
+        <h1 className="text-6xl font-semibold text-foreground">404</h1>
+        <p className="mt-3 text-sm text-muted-foreground">Страница не найдена</p>
         <Link
           to="/"
-          className="mt-6 inline-block rounded-[12px] bg-[#111] px-4 py-2 text-sm text-white"
+          className="mt-6 inline-block rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-2 text-sm text-[#0b1020]"
         >
           На главную
         </Link>
@@ -73,7 +73,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-background text-foreground">
         <Sidebar />
         <main className="md:ml-[280px]">
           <div className="mx-auto w-full max-w-[1100px] px-5 py-8 md:px-10 md:py-12">
