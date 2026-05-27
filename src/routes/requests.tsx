@@ -72,9 +72,14 @@ function RequestsPage() {
           Напишите мне в свободной форме — отвечу лично и подскажу, подойдёт ли
           вам работа со мной.
         </p>
-        <button className="mt-5 rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
+        <a
+          href="https://www.instagram.com/d_miroshnikov_o/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-block rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
+        >
           Записаться на консультацию
-        </button>
+        </a>
       </section>
     </div>
   );

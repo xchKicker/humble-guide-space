@@ -27,9 +27,9 @@ export function Sidebar() {
     <div className="flex h-full flex-col px-5 py-7">
       <Link to="/" className="mb-8 block px-2">
         <div className="text-[15px] font-semibold tracking-tight text-foreground">
-          Анна Иванова
+          Дмитрий Мирошников
         </div>
-        <div className="mt-0.5 text-xs text-muted-foreground">психотерапевт</div>
+        <div className="mt-0.5 text-xs text-muted-foreground">психолог</div>
       </Link>
 
       <nav className="flex flex-col gap-1">
@@ -54,9 +54,14 @@ export function Sidebar() {
         })}
       </nav>
 
-      <button className="mt-6 rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
-        Записаться на терапию
-      </button>
+      <a
+        href="https://www.instagram.com/d_miroshnikov_o/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 block rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-center text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
+      >
+        Записаться на консультацию
+      </a>
 
       <div className="mt-5 flex flex-col gap-1">
         <Link
@@ -107,7 +112,7 @@ export function Sidebar() {
     <>
       {/* Mobile top bar */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b bg-background px-4 py-3 md:hidden">
-        <span className="text-sm font-semibold">Анна Иванова</span>
+        <span className="text-sm font-semibold">Дмитрий Мирошников</span>
         <button onClick={() => setOpen(true)} aria-label="Открыть меню">
           <Menu className="h-5 w-5" />
         </button>
