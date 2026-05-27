@@ -48,9 +48,14 @@ function AboutPage() {
               </p>
             </div>
 
-            <button className="mt-8 rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
+            <a
+              href="https://www.instagram.com/d_miroshnikov_o/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-block rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
+            >
               Записаться на консультацию
-            </button>
+            </a>
           </div>
 
           {/* Right: round portrait */}
