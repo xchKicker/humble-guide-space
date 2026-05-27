@@ -112,7 +112,7 @@ export function Sidebar() {
     <>
       {/* Mobile top bar */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b bg-background px-4 py-3 md:hidden">
-        <span className="text-sm font-semibold">Анна Иванова</span>
+        <span className="text-sm font-semibold">Дмитрий Мирошников</span>
         <button onClick={() => setOpen(true)} aria-label="Открыть меню">
           <Menu className="h-5 w-5" />
         </button>
