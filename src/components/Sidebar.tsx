@@ -27,9 +27,9 @@ export function Sidebar() {
     <div className="flex h-full flex-col px-5 py-7">
       <Link to="/" className="mb-8 block px-2">
         <div className="text-[15px] font-semibold tracking-tight text-foreground">
-          Анна Иванова
+          Дмитрий Мирошников
         </div>
-        <div className="mt-0.5 text-xs text-muted-foreground">психотерапевт</div>
+        <div className="mt-0.5 text-xs text-muted-foreground">психолог</div>
       </Link>
 
       <nav className="flex flex-col gap-1">
