@@ -45,13 +45,15 @@ function Index() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                to="/requests"
+              <a
+                href="https://www.instagram.com/d_miroshnikov_o/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-[14px] bg-[color:var(--accent-violet)] px-6 py-3.5 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
               >
                 Записаться на консультацию
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 rounded-[14px] border border-[var(--border-strong)] px-6 py-3.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-[var(--hover-surface)] hover:text-foreground"
