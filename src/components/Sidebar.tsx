@@ -54,9 +54,14 @@ export function Sidebar() {
         })}
       </nav>
 
-      <button className="mt-6 rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
-        Записаться на терапию
-      </button>
+      <a
+        href="https://www.instagram.com/d_miroshnikov_o/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 block rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-center text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
+      >
+        Записаться на консультацию
+      </a>
 
       <div className="mt-5 flex flex-col gap-1">
         <Link
