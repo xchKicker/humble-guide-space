@@ -74,14 +74,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background text-foreground">
-        <Sidebar />
-        <main className="md:ml-[280px]">
-          <div className="mx-auto w-full max-w-[1100px] px-5 py-8 md:px-10 md:py-12">
-            <Outlet />
-          </div>
-        </main>
-      </div>
+      <I18nProvider>
+        <div className="min-h-screen bg-background text-foreground">
+          <Sidebar />
+          <main className="md:ml-[280px]">
+            <div className="mx-auto w-full max-w-[1100px] px-5 py-8 md:px-10 md:py-12">
+              <Outlet />
+            </div>
+          </main>
+        </div>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }
