@@ -38,9 +38,10 @@ export function Sidebar() {
         {menuItems.map((item) => {
           const active = isActive(item.to);
           const Icon = item.icon;
+          const label = lang === "UA" ? item.labelUa : item.labelRu;
           return (
             <Link
-              key={item.label}
+              key={item.to}
               to={item.to as any}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-3 rounded-[12px] px-3 py-2.5 text-[14px] transition-colors ${
@@ -50,11 +51,15 @@ export function Sidebar() {
               }`}
             >
               <Icon className={`h-4 w-4 ${active ? "text-[color:var(--accent-violet)]" : "text-muted-foreground"}`} />
-              {item.label}
+              {label}
             </Link>
           );
         })}
       </nav>
+
+      <BookButton className="mt-6 block w-full rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-center text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
+        {t("nav.book")}
+      </BookButton>
 
       <a
         href="https://www.instagram.com/d_miroshnikov_o/"
