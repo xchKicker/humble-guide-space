@@ -7,6 +7,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { Sidebar } from "@/components/Sidebar";
+import { I18nProvider } from "@/lib/i18n";
 
 import appCss from "../styles.css?url";
 
