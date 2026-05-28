@@ -1,20 +1,22 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ShoppingCart, User, Home, UserCircle2, MessageSquare, GraduationCap, Wallet, BookOpen, ClipboardList } from "lucide-react";
+import { BookButton } from "@/components/ContactDialog";
+import { useI18n } from "@/lib/i18n";
 
 const menuItems = [
-  { label: "Главная", to: "/" as const, icon: Home },
-  { label: "Обо мне", to: "/about" as const, icon: UserCircle2 },
-  { label: "Запросы", to: "/requests" as const, icon: MessageSquare },
-  { label: "Образование", to: "/education" as const, icon: GraduationCap },
-  { label: "Стоимость", to: "/pricing" as const, icon: Wallet },
-  { label: "Курсы", to: "/courses/workbook" as const, icon: BookOpen },
-  { label: "Тесты", to: "/tests" as const, icon: ClipboardList },
+  { labelRu: "Главная", labelUa: "Головна", to: "/" as const, icon: Home },
+  { labelRu: "Обо мне", labelUa: "Про мене", to: "/about" as const, icon: UserCircle2 },
+  { labelRu: "Запросы", labelUa: "Запити", to: "/requests" as const, icon: MessageSquare },
+  { labelRu: "Образование", labelUa: "Освіта", to: "/education" as const, icon: GraduationCap },
+  { labelRu: "Стоимость", labelUa: "Вартість", to: "/pricing" as const, icon: Wallet },
+  { labelRu: "Курсы", labelUa: "Курси", to: "/courses/workbook" as const, icon: BookOpen },
+  { labelRu: "Тесты", labelUa: "Тести", to: "/tests" as const, icon: ClipboardList },
 ];
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"UA" | "RU">("RU");
+  const { lang, setLang, t } = useI18n();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const isActive = (to: string) => {
