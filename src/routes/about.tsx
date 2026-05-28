@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import dmitryPhoto from "@/assets/dmitry.jpg";
+import { BookButton } from "@/components/ContactDialog";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,53 +14,34 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const { t } = useI18n();
   return (
     <div className="flex flex-col gap-10">
       <section className="rounded-[24px] border bg-card p-6 md:p-10">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_auto]">
-          {/* Left: text */}
           <div className="max-w-xl">
             <div className="mb-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              Обо мне
+              {t("about.kicker")}
             </div>
             <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-[34px]">
               Дмитрий Мирошников
             </h1>
             <p className="mt-2 text-[15px] text-[color:var(--accent-violet)]">
-              психолог-консультант
+              {t("about.role")}
             </p>
 
             <div className="mt-7 space-y-5 text-[15.5px] leading-relaxed text-foreground/90">
-              <p>
-                Работаю в интегральном подходе с опорой на
-                когнитивно-поведенческую терапию (КПТ).
-              </p>
-              <p>
-                В работе я фокусируюсь не только на симптомах,
-                а на том, как формируется состояние и почему оно удерживается.
-              </p>
-              <p>
-                Многие из этих сложностей мне знакомы не только в практике,
-                но и лично.
-              </p>
-              <p className="text-foreground">
-                Поэтому в работе мы не просто стараемся, чтобы «стало легче»,
-                а разбираем, как устроена проблема, и шаг за шагом меняем то,
-                что её поддерживает.
-              </p>
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <p>{t("about.p3")}</p>
+              <p className="text-foreground">{t("about.p4")}</p>
             </div>
 
-            <a
-              href="https://www.instagram.com/d_miroshnikov_o/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
-            >
-              Записаться на консультацию
-            </a>
+            <BookButton className="mt-8 inline-block rounded-[14px] bg-[color:var(--accent-violet)] px-5 py-3 text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
+              {t("nav.book")}
+            </BookButton>
           </div>
 
-          {/* Right: round portrait */}
           <div className="flex justify-center md:justify-end">
             <div
               className="rounded-full p-[3px]"
