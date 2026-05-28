@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestsRouteImport } from './routes/tests'
 import { Route as RequestsRouteImport } from './routes/requests'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
@@ -31,6 +32,11 @@ const RequestsRoute = RequestsRouteImport.update({
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EducationRoute = EducationRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/education': typeof EducationRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/requests': typeof RequestsRoute
   '/tests': typeof TestsRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/education': typeof EducationRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/requests': typeof RequestsRoute
   '/tests': typeof TestsRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/education': typeof EducationRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/requests': typeof RequestsRoute
   '/tests': typeof TestsRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/education'
+    | '/pricing'
     | '/profile'
     | '/requests'
     | '/tests'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/education'
+    | '/pricing'
     | '/profile'
     | '/requests'
     | '/tests'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/education'
+    | '/pricing'
     | '/profile'
     | '/requests'
     | '/tests'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CartRoute: typeof CartRoute
   EducationRoute: typeof EducationRoute
+  PricingRoute: typeof PricingRoute
   ProfileRoute: typeof ProfileRoute
   RequestsRoute: typeof RequestsRoute
   TestsRoute: typeof TestsRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/education': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CartRoute: CartRoute,
   EducationRoute: EducationRoute,
+  PricingRoute: PricingRoute,
   ProfileRoute: ProfileRoute,
   RequestsRoute: RequestsRoute,
   TestsRoute: TestsRoute,
@@ -208,13 +229,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

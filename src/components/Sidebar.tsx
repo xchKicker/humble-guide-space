@@ -1,20 +1,22 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ShoppingCart, User, Home, UserCircle2, MessageSquare, GraduationCap, Wallet, BookOpen, ClipboardList } from "lucide-react";
+import { BookButton } from "@/components/ContactDialog";
+import { useI18n } from "@/lib/i18n";
 
 const menuItems = [
-  { label: "Главная", to: "/" as const, icon: Home },
-  { label: "Обо мне", to: "/about" as const, icon: UserCircle2 },
-  { label: "Запросы", to: "/requests" as const, icon: MessageSquare },
-  { label: "Образование", to: "/education" as const, icon: GraduationCap },
-  { label: "Стоимость", to: "/pricing" as const, icon: Wallet },
-  { label: "Курсы", to: "/courses/workbook" as const, icon: BookOpen },
-  { label: "Тесты", to: "/tests" as const, icon: ClipboardList },
+  { labelRu: "Главная", labelUa: "Головна", to: "/" as const, icon: Home },
+  { labelRu: "Обо мне", labelUa: "Про мене", to: "/about" as const, icon: UserCircle2 },
+  { labelRu: "Запросы", labelUa: "Запити", to: "/requests" as const, icon: MessageSquare },
+  { labelRu: "Образование", labelUa: "Освіта", to: "/education" as const, icon: GraduationCap },
+  { labelRu: "Стоимость", labelUa: "Вартість", to: "/pricing" as const, icon: Wallet },
+  { labelRu: "Курсы", labelUa: "Курси", to: "/courses/workbook" as const, icon: BookOpen },
+  { labelRu: "Тесты", labelUa: "Тести", to: "/tests" as const, icon: ClipboardList },
 ];
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"UA" | "RU">("RU");
+  const { lang, setLang, t } = useI18n();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const isActive = (to: string) => {
@@ -36,9 +38,10 @@ export function Sidebar() {
         {menuItems.map((item) => {
           const active = isActive(item.to);
           const Icon = item.icon;
+          const label = lang === "UA" ? item.labelUa : item.labelRu;
           return (
             <Link
-              key={item.label}
+              key={item.to}
               to={item.to as any}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-3 rounded-[12px] px-3 py-2.5 text-[14px] transition-colors ${
@@ -48,20 +51,18 @@ export function Sidebar() {
               }`}
             >
               <Icon className={`h-4 w-4 ${active ? "text-[color:var(--accent-violet)]" : "text-muted-foreground"}`} />
-              {item.label}
+              {label}
             </Link>
           );
         })}
       </nav>
 
-      <a
-        href="https://www.instagram.com/d_miroshnikov_o/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-6 block rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-center text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90"
-      >
-        Записаться на консультацию
-      </a>
+      <BookButton className="mt-6 block w-full rounded-[14px] bg-[color:var(--accent-violet)] px-4 py-3 text-center text-[14px] font-medium text-[#0b1020] transition-opacity hover:opacity-90">
+        {t("nav.book")}
+      </BookButton>
+
+
+
 
       <div className="mt-5 flex flex-col gap-1">
         <Link
